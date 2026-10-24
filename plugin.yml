@@ -1,0 +1,42 @@
+name: YTCustom
+version: '${version}'
+main: com.ytcustom.YTCustom
+api-version: '1.21'
+description: Jefe THE HOLLOW KING, objetos, bloques y entidades personalizadas.
+author: YTCustom
+commands:
+  ytboss:
+    description: Invoca o elimina a THE HOLLOW KING.
+    usage: /ytboss [remove]
+    permission: ytcustom.boss
+  ytitems:
+    description: Entrega objetos personalizados de prueba.
+    usage: /ytitems <objeto|all> [cantidad]
+    permission: ytcustom.items
+  ytcoins:
+    description: Muestra las monedas personalizadas que llevas.
+    usage: /ytcoins [jugador]
+    permission: ytcustom.coins
+  ytcustom:
+    description: Administración del plugin.
+    usage: /ytcustom <reload|pack>
+    permission: ytcustom.admin
+permissions:
+  ytcustom.boss:
+    description: Invocar al jefe.
+    default: op
+  ytcustom.items:
+    description: Obtener objetos de prueba.
+    default: op
+  ytcustom.coins:
+    description: Consultar tus monedas.
+    default: true
+  ytcustom.coins.others:
+    description: Consultar las monedas de otros jugadores.
+    default: op
+  ytcustom.admin:
+    description: Recargar configuración y reenviar el resource pack.
+    default: op
+  ytcustom.pluma:
+    description: Usar la Pluma de Impulso.
+    default: true

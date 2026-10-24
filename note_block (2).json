@@ -1,0 +1,11 @@
+{
+ "parent": "minecraft:block/note_block",
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 2007
+   },
+   "model": "ytcustom:item/hollowite_ore"
+  }
+ ]
+}

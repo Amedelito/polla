@@ -1,0 +1,73 @@
+# ============================================================
+#  YTCustom - configuración (recarga con /ytcustom reload)
+# ============================================================
+
+# --- Resource pack -------------------------------------------
+# El servidor SOLO lo pedirá a los jugadores si 'url' está rellena.
+# Debe ser un enlace HTTPS DIRECTO al ZIP y 'sha1' el hash SHA-1 (40 hex)
+# de ESE MISMO ZIP:  sha1sum YTCustom-ResourcePack.zip
+resource-pack:
+  enabled: true
+  url: ""
+  sha1: ""
+  required: false
+  send-delay-ticks: 20
+  prompt: "<gradient:#8a2be2:#00e5ff>YTCustom</gradient> necesita su resource pack para verse correctamente."
+
+# --- THE HOLLOW KING -----------------------------------------
+boss:
+  health: 700.0
+  hitbox-scale: 1.7          # escala de la entidad base (hitbox)
+  model-scale: 2.05          # escala del modelo visual (ItemDisplay)
+  model-yaw-offset: 0.0      # si el modelo mira hacia atrás, pon 180
+  max-concurrent: 1          # -1 = sin límite
+  bar-range: 64.0            # distancia a la que se muestra la bossbar
+  intro-ticks: 60
+  phase2-threshold: 0.66
+  phase3-threshold: 0.33
+  # Por fase: daño cuerpo a cuerpo, velocidad, daño de habilidades, ticks entre habilidades
+  phase-1:
+    melee-damage: 8.0
+    speed: 0.26
+    ability-damage: 7.0
+    ability-cooldown: 110
+  phase-2:
+    melee-damage: 11.0
+    speed: 0.32
+    ability-damage: 10.0
+    ability-cooldown: 85
+  phase-3:
+    melee-damage: 14.0
+    speed: 0.36
+    ability-damage: 13.0
+    ability-cooldown: 65
+  wraiths:
+    health: 16.0
+    damage: 5.0
+    max-alive: 4
+  rewards:
+    coins-min: 8
+    coins-max: 16
+    relic-chance: 0.15       # probabilidad (0.0 - 1.0) del Corazón Hueco
+    xp: 1500
+
+# --- Pluma de Impulso ----------------------------------------
+pluma:
+  cooldown-seconds: 18
+  charges: 6
+  horizontal-speed: 1.7
+  vertical-speed: 0.45
+
+# --- Objetos --------------------------------------------------
+items:
+  blade-damage: 9.0          # daño total del Filo Hueco
+  blade-attack-speed: 1.6
+  recipes-enabled: true
+
+# --- Mineral Hollowite (bloque personalizado) -----------------
+ore:
+  generate: true
+  veins-per-chunk: 3
+  vein-size: 5
+  min-y: -58
+  max-y: -4

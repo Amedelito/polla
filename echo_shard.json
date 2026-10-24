@@ -1,0 +1,50 @@
+{
+ "parent": "minecraft:item/generated",
+ "textures": {
+  "layer0": "minecraft:item/echo_shard"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 3001
+   },
+   "model": "ytcustom:item/hollow_king_p1"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3002
+   },
+   "model": "ytcustom:item/hollow_king_p2"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3003
+   },
+   "model": "ytcustom:item/hollow_king_p3"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3011
+   },
+   "model": "ytcustom:item/king_halo_p1"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3012
+   },
+   "model": "ytcustom:item/king_halo_p2"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3013
+   },
+   "model": "ytcustom:item/king_halo_p3"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3020
+   },
+   "model": "ytcustom:item/hollow_wraith"
+  }
+ ]
+}

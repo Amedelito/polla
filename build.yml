@@ -1,0 +1,61 @@
+name: Build YTCustom
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
+
+      - name: Build plugin JAR
+        run: |
+          set -o pipefail
+          gradle clean build --no-daemon --stacktrace 2>&1 | tee build-log.txt
+
+      - name: Package resource pack
+        run: |
+          cd resourcepack
+          zip -X -r ../YTCustom-ResourcePack.zip pack.mcmeta pack.png assets
+          cd ..
+          sha1sum YTCustom-ResourcePack.zip | tee YTCustom-ResourcePack.sha1
+
+      - name: Upload build log (siempre)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build-log.txt
+          if-no-files-found: ignore
+
+      - name: Upload plugin JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: YTCustom-plugin-jar
+          path: build/libs/YTCustom-*.jar
+          if-no-files-found: error
+
+      - name: Upload resource pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: YTCustom-resource-pack
+          path: |
+            YTCustom-ResourcePack.zip
+            YTCustom-ResourcePack.sha1
+          if-no-files-found: error

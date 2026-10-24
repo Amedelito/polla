@@ -1,0 +1,14 @@
+{
+ "parent": "minecraft:item/generated",
+ "textures": {
+  "layer0": "minecraft:item/feather"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 2002
+   },
+   "model": "ytcustom:item/pluma_impulso"
+  }
+ ]
+}
